@@ -202,19 +202,19 @@
     color: var(--white);
     padding: 30px 0;
   }
-.horarios-strip .wrap {
+  .horarios-strip .wrap {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-}
-.horarios-group {
+  }
+  .horarios-group {
     display: flex;
     flex-wrap: wrap;
     gap: 28px 48px;
     align-items: center;
-}
+  }
   .horario-item { display: flex; flex-direction: column; }
   .horario-item .dia { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; }
   .horario-item .hora { color: #D9C79A; font-size: 0.95rem; }
@@ -405,6 +405,66 @@
     color: #8A8168;
   }
 
+  /* ---------- Formulario de oración/consejería ---------- */
+  .prayer-form {
+    max-width: 640px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px;
+  }
+  .form-row { margin-bottom: 20px; }
+  .form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .form-row label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--navy-deep);
+    margin-bottom: 6px;
+  }
+  .prayer-form input,
+  .prayer-form select,
+  .prayer-form textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.98rem;
+    color: var(--ink);
+    background: var(--ivory);
+  }
+  .prayer-form input:focus,
+  .prayer-form select:focus,
+  .prayer-form textarea:focus {
+    outline: none;
+    border-color: var(--amber);
+  }
+  .prayer-form textarea { resize: vertical; }
+  .form-note {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: #8C7F63;
+  }
+  .form-success {
+    max-width: 640px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px;
+  }
+  .form-success h3 { font-size: 1.3rem; margin-bottom: 10px; }
+  .form-success p { color: #4A443B; margin: 0; }
+
+  @media (max-width: 600px) {
+    .form-row-split { grid-template-columns: 1fr; gap: 0; }
+    .prayer-form { padding: 26px; }
+  }
+
   /* ---------- Responsive ---------- */
   @media (max-width: 860px) {
     nav.links { display: none; }
@@ -440,6 +500,7 @@
       <a href="#horarios">Horarios</a>
       <a href="#sermones">Sermones</a>
       <a href="#nosotros">Nosotros</a>
+      <a href="#oracion">Oración</a>
       <a href="#eventos">Eventos</a>
       <a href="#dar">Dar</a>
       <a href="#contacto">Contacto</a>
@@ -452,6 +513,7 @@
     <a href="#horarios" style="padding:10px 0;">Horarios</a>
     <a href="#sermones" style="padding:10px 0;">Sermones</a>
     <a href="#nosotros" style="padding:10px 0;">Nosotros</a>
+    <a href="#oracion" style="padding:10px 0;">Oración</a>
     <a href="#eventos" style="padding:10px 0;">Eventos</a>
     <a href="#dar" style="padding:10px 0;">Dar</a>
     <a href="#contacto" style="padding:10px 0;">Contacto</a>
@@ -554,6 +616,62 @@
     </div>
 
     <p style="margin-top:36px;">¿Quieres conocer más? Puedes leer nuestra <a href="https://bfm.sbc.net/fe-y-mensaje-bautistas/" target="_blank" rel="noopener">declaración de fe completa</a>.</p>
+  </div>
+</section>
+
+<!-- ---------- ORACIÓN / CONSEJERÍA ---------- -->
+<section class="alt" id="oracion">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Estamos para ti</div>
+      <h2>Solicita oración, consejería o una visita pastoral</h2>
+      <p>Si estás pasando por un momento difícil, o simplemente quieres que oremos contigo, cuéntanos. Toda solicitud es confidencial y será atendida por nuestro equipo pastoral.</p>
+    </div>
+
+    <form
+      name="solicitud-pastoral"
+      method="POST"
+      data-netlify="true"
+      class="prayer-form"
+      id="prayerForm"
+    >
+      <input type="hidden" name="form-name" value="solicitud-pastoral">
+
+      <div class="form-row">
+        <label for="tipo">¿En qué te podemos ayudar?</label>
+        <select name="tipo" id="tipo" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="Oración">Solicitud de oración</option>
+          <option value="Consejería">Consejería pastoral</option>
+          <option value="Visita">Visita pastoral</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="form-row form-row-split">
+        <div>
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombre" required>
+        </div>
+        <div>
+          <label for="contacto-campo">Teléfono o correo</label>
+          <input type="text" name="contacto" id="contacto-campo" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="mensaje">Cuéntanos un poco más (opcional)</label>
+        <textarea name="mensaje" id="mensaje" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+      <p class="form-note">Tu información es confidencial y solo la verá nuestro equipo pastoral.</p>
+    </form>
+
+    <div class="form-success" id="formSuccess" style="display:none;">
+      <h3>Gracias — ya recibimos tu solicitud.</h3>
+      <p>Un miembro de nuestro equipo pastoral se pondrá en contacto contigo pronto. Si es urgente, también puedes llamarnos directamente al (404) 827-8976.</p>
+    </div>
   </div>
 </section>
 
@@ -695,6 +813,26 @@
   mobileNav.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => { mobileNav.style.display = 'none'; });
   });
+
+  const prayerForm = document.getElementById('prayerForm');
+  if (prayerForm) {
+    prayerForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(prayerForm);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      })
+        .then(() => {
+          prayerForm.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        })
+        .catch(() => {
+          alert('Hubo un problema enviando tu solicitud. Por favor intenta de nuevo o llámanos directamente.');
+        });
+    });
+  }
 </script>
 
 </body>
