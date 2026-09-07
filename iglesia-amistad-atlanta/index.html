@@ -202,13 +202,19 @@
     color: var(--white);
     padding: 30px 0;
   }
-  .horarios-strip .wrap {
+.horarios-strip .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.horarios-group {
     display: flex;
     flex-wrap: wrap;
     gap: 28px 48px;
     align-items: center;
-    justify-content: space-between;
-  }
+}
   .horario-item { display: flex; flex-direction: column; }
   .horario-item .dia { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; }
   .horario-item .hora { color: #D9C79A; font-size: 0.95rem; }
@@ -471,10 +477,11 @@
 <!-- ---------- HORARIOS STRIP ---------- -->
 <div class="horarios-strip" id="horarios">
   <div class="wrap">
-    </div>
-    <div class="horario-item">
-      <span class="dia">Domingo</span>
-      <span class="hora">Servicio principal · 04:00 PM</span>
+    <div class="horarios-group">
+      <div class="horario-item">
+        <span class="dia">Domingo</span>
+        <span class="hora">Servicio principal · 4:00 PM</span>
+      </div>
     </div>
     <a href="#contacto" class="btn btn-ghost" style="border-color:#D9C79A; color:#FAF6EF;">Cómo llegar</a>
   </div>
