@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iglesia Amistad Atlanta</title>
+<meta name="description" content="Iglesia Amistad Atlanta — una comunidad de fe centrada en el evangelio, en Atlanta, Georgia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B3A5C;
+    --navy-deep: #142B44;
+    --ink: #2B2620;
+    --amber: #C98A2A;
+    --amber-deep: #A66F1E;
+    --ivory: #FAF6EF;
+    --card: #F2EBDD;
+    --line: #E3D9C6;
+    --white: #FFFFFF;
+    --max: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Public Sans', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--navy-deep);
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  a { color: var(--amber-deep); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Nav ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 246, 239, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--navy-deep);
+  }
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .brand small {
+    display: block;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.68rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.02em;
+  }
+  nav.links {
+    display: flex;
+    gap: 28px;
+  }
+  nav.links a {
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.96rem;
+  }
+  nav.links a:hover { color: var(--amber-deep); text-decoration: none; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy-deep);
+    margin: 5px 0;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 76px 0 64px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .eyebrow {
+    color: var(--amber-deep);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(2.3rem, 4.2vw, 3.4rem);
+    margin-bottom: 20px;
+  }
+  .hero p.lede {
+    font-size: 1.15rem;
+    color: #4A443B;
+    max-width: 46ch;
+    margin-bottom: 30px;
+  }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    border: 2px solid transparent;
+  }
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: var(--navy-deep); text-decoration: none; }
+  .btn-ghost {
+    border-color: var(--navy);
+    color: var(--navy-deep);
+  }
+  .btn-ghost:hover { background: var(--navy); color: var(--white); text-decoration: none; }
+
+  .photo-slot {
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(160deg, var(--card), #E7DCC5);
+    border: 1px dashed #C9BB9E;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    color: #8C7F63;
+    font-size: 0.9rem;
+  }
+  .photo-slot.wide { aspect-ratio: 16 / 10; }
+
+  .hero-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 18px 40px -18px rgba(20, 43, 68, 0.45);
+  }
+
+  /* ---------- Horarios strip ---------- */
+  .horarios-strip {
+    background: var(--navy);
+    color: var(--white);
+    padding: 30px 0;
+  }
+  .horarios-strip .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .horario-item { display: flex; flex-direction: column; }
+  .horario-item .dia { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; }
+  .horario-item .hora { color: #D9C79A; font-size: 0.95rem; }
+
+  /* ---------- Section shell ---------- */
+  section { padding: 84px 0; }
+  section.alt { background: var(--card); }
+  .section-head { max-width: 62ch; margin-bottom: 44px; }
+  .section-head .eyebrow { margin-bottom: 10px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+  .section-head p { color: #4A443B; margin-top: 14px; font-size: 1.05rem; }
+
+  /* ---------- Sermones ---------- */
+  .sermon-feature {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 40px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .sermon-feature .photo-slot { aspect-ratio: auto; height: 100%; border: none; border-radius: 0; }
+  .sermon-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sermon-feature-body { padding: 34px 36px 34px 0; display: flex; flex-direction: column; justify-content: center; }
+  .sermon-feature .tag {
+    color: var(--amber-deep);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+  .sermon-feature h3 { font-size: 1.5rem; margin-bottom: 10px; }
+  .sermon-feature p { color: #4A443B; margin-bottom: 18px; }
+
+  .sermon-list {
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .sermon-row {
+    background: var(--ivory);
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+  .sermon-row:hover { background: var(--card); text-decoration: none; }
+  .sermon-row .fecha { color: #8C7F63; font-size: 0.9rem; }
+  .sermon-row .titulo { font-weight: 600; color: var(--navy-deep); }
+  .sermon-row .serie { color: var(--amber-deep); font-size: 0.9rem; font-weight: 600; }
+
+  /* ---------- Creencias ---------- */
+  .creencias-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 48px;
+  }
+  .creencia h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--amber);
+  }
+  .creencia p { color: #4A443B; }
+
+  /* ---------- Eventos ---------- */
+  .eventos-list { display: flex; flex-direction: column; gap: 0; }
+  .evento-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .evento-row:first-child { border-top: 1px solid var(--line); }
+  .fecha-block {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 3px;
+  }
+  .fecha-block .dia-num { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; line-height: 1; }
+  .fecha-block .mes { font-size: 0.72rem; letter-spacing: 0.04em; color: #D9C79A; margin-top: 2px; }
+  .evento-row h3 { font-size: 1.15rem; margin-bottom: 6px; }
+  .evento-row p { color: #4A443B; margin: 0; font-size: 0.96rem; }
+
+  /* ---------- Dar ---------- */
+  .dar-panel {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 6px;
+    padding: 52px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .dar-panel h2 { color: var(--white); }
+  .dar-panel p { color: #D8CFBC; margin-top: 14px; max-width: 48ch; }
+  .dar-methods { display: flex; flex-direction: column; gap: 14px; }
+  .dar-method {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 3px;
+    padding: 16px 18px;
+  }
+  .dar-method .metodo { font-weight: 600; margin-bottom: 4px; }
+  .dar-method .detalle { color: #D8CFBC; font-size: 0.92rem; }
+  .dar-method-qr { display: flex; flex-direction: column; }
+  .qr-img {
+    width: 92px;
+    height: 92px;
+    background: var(--white);
+    padding: 6px;
+    border-radius: 4px;
+    margin-top: 12px;
+  }
+
+  /* ---------- Contacto ---------- */
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .contacto-info dl {
+    margin: 0;
+  }
+  .contacto-info dt {
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-top: 22px;
+    font-size: 0.9rem;
+  }
+  .contacto-info dt:first-child { margin-top: 0; }
+  .contacto-info dd {
+    margin: 4px 0 0;
+    color: #4A443B;
+  }
+  .map-slot {
+    aspect-ratio: 4 / 3;
+    background: var(--card);
+    border: 1px dashed #C9BB9E;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8C7F63;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 24px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--navy-deep);
+    color: #C9BF9E;
+    padding: 48px 0 28px;
+  }
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .footer-brand { color: var(--white); font-family: 'Fraunces', serif; font-size: 1.1rem; }
+  .footer-brand p { color: #A69C82; font-size: 0.9rem; margin-top: 8px; max-width: 34ch; }
+  footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
+  footer nav a { color: #C9BF9E; font-size: 0.92rem; }
+  footer nav a:hover { color: var(--amber); text-decoration: none; }
+  .footer-bottom {
+    padding-top: 22px;
+    font-size: 0.84rem;
+    color: #8A8168;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    nav.links { display: none; }
+    .nav-toggle { display: block; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero { padding: 48px 0 44px; }
+    .sermon-feature { grid-template-columns: 1fr; }
+    .sermon-feature-body { padding: 26px; }
+    .sermon-row { grid-template-columns: 1fr; gap: 4px; }
+    .creencias-grid { grid-template-columns: 1fr; }
+    .dar-panel { grid-template-columns: 1fr; padding: 34px 26px; }
+    .contacto-grid { grid-template-columns: 1fr; }
+    .horarios-strip .wrap { justify-content: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-row">
+    <div class="brand">
+      <div class="brand-mark">A</div>
+      <div>
+        Iglesia Amistad
+        <small>ATLANTA</small>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#horarios">Horarios</a>
+      <a href="#sermones">Sermones</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#dar">Dar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="links" id="mobileNav" style="display:none; flex-direction:column; gap:0; padding:0 28px 18px;">
+    <a href="#horarios" style="padding:10px 0;">Horarios</a>
+    <a href="#sermones" style="padding:10px 0;">Sermones</a>
+    <a href="#nosotros" style="padding:10px 0;">Nosotros</a>
+    <a href="#eventos" style="padding:10px 0;">Eventos</a>
+    <a href="#dar" style="padding:10px 0;">Dar</a>
+    <a href="#contacto" style="padding:10px 0;">Contacto</a>
+  </nav>
+</header>
+
+<!-- ---------- HERO ---------- -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Bienvenido a casa</div>
+      <h1>Una familia de fe en el corazón de Atlanta</h1>
+      <p class="lede">En Iglesia Amistad Atlanta creemos que el evangelio no es solo un mensaje que se predica — es una vida que se comparte. Te invitamos a caminar con nosotros.</p>
+      <div class="cta-row">
+        <a href="#horarios" class="btn btn-primary">Planea tu visita</a>
+        <a href="https://www.youtube.com/@AmistadAtlanta" target="_blank" rel="noopener" class="btn btn-ghost">Escuchar mensajes</a>
+      </div>
+    </div>
+    <img src="images/congregacion.webp" alt="Congregación de Iglesia Amistad Atlanta reunida en un convivio" class="hero-photo">
+  </div>
+</section>
+
+<!-- ---------- HORARIOS STRIP ---------- -->
+<div class="horarios-strip" id="horarios">
+  <div class="wrap">
+    <div class="horario-item">
+      <span class="dia">Domingo</span>
+      <span class="hora">Escuela Dominical · 9:30 AM</span>
+    </div>
+    <div class="horario-item">
+      <span class="dia">Domingo</span>
+      <span class="hora">Servicio principal · 10:30 AM</span>
+    </div>
+    <div class="horario-item">
+      <span class="dia">Miércoles</span>
+      <span class="hora">Estudio bíblico · 7:00 PM</span>
+    </div>
+    <a href="#contacto" class="btn btn-ghost" style="border-color:#D9C79A; color:#FAF6EF;">Cómo llegar</a>
+  </div>
+</div>
+
+<!-- ---------- SERMONES ---------- -->
+<section id="sermones">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Prédicas</div>
+      <h2>Mensajes recientes</h2>
+      <p>La Palabra de Dios expuesta con claridad, domingo tras domingo. Escucha el mensaje más reciente o explora la serie completa.</p>
+    </div>
+
+    <div class="sermon-feature">
+      <a href="https://www.youtube.com/watch?v=QL8HI77WFLc" target="_blank" rel="noopener" style="display:block;">
+        <img src="images/sermon-rut2.jpg" alt="La Providencia de Dios en lo Ordinario — Rut 2" class="sermon-thumb">
+      </a>
+      <div class="sermon-feature-body">
+        <div class="tag">Serie: Rut</div>
+        <h3>La Providencia de Dios en lo Ordinario</h3>
+        <p>Rut 2 — La providencia de Dios sigue obrando en los detalles ordinarios de la vida, aun cuando no la vemos.</p>
+        <a href="https://www.youtube.com/watch?v=QL8HI77WFLc" target="_blank" rel="noopener" class="btn btn-primary" style="align-self:flex-start;">Ver en YouTube</a>
+      </div>
+    </div>
+
+    <div class="sermon-list">
+      <a href="https://www.youtube.com/watch?v=aW6RJeo1k8I&t=3270s" target="_blank" rel="noopener" class="sermon-row">
+        <span class="fecha">Rut 1</span>
+        <span class="titulo">La Providencia de Dios en Medio de la Pérdida</span>
+        <span class="serie">Serie: Rut</span>
+      </a>
+      <a href="https://www.youtube.com/watch?v=3fmp0g33Zs8&t=1880s" target="_blank" rel="noopener" class="sermon-row">
+        <span class="fecha">Jueces 21</span>
+        <span class="titulo">La Solución del Pecado... A Mi Manera</span>
+        <span class="serie">Serie: Jueces</span>
+      </a>
+    </div>
+
+    <p style="margin-top:28px;"><a href="https://www.youtube.com/@AmistadAtlanta" target="_blank" rel="noopener">Ver todos los sermones en nuestro canal de YouTube →</a></p>
+  </div>
+</section>
+
+<!-- ---------- SOBRE NOSOTROS ---------- -->
+<section class="alt" id="nosotros">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Quiénes somos</div>
+      <h2>Lo que creemos</h2>
+      <p>Somos una iglesia que cree que la Biblia es la Palabra inspirada de Dios y la única regla de fe y conducta para el creyente.</p>
+    </div>
+
+    <div class="creencias-grid">
+      <div class="creencia">
+        <h3>La Escritura</h3>
+        <p>Creemos que la Biblia, en su totalidad, es la Palabra inspirada por Dios, sin error en sus escritos originales, y la autoridad final para la fe y la vida cristiana.</p>
+      </div>
+      <div class="creencia">
+        <h3>El evangelio</h3>
+        <p>Creemos que la salvación es por gracia, mediante la fe en la obra terminada de Jesucristo en la cruz — no por obras, para que nadie se gloríe.</p>
+      </div>
+      <div class="creencia">
+        <h3>La iglesia</h3>
+        <p>Creemos que la iglesia local es el cuerpo de Cristo en la tierra, llamada a adorar, a hacer discípulos y a servir a la comunidad que la rodea.</p>
+      </div>
+      <div class="creencia">
+        <h3>La misión</h3>
+        <p>Creemos que cada creyente es enviado a vivir y compartir el evangelio — en su casa, en su trabajo, y hasta lo último de la tierra.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:36px;">¿Quieres conocer más? Puedes leer nuestra <a href="https://bfm.sbc.net/fe-y-mensaje-bautistas/" target="_blank" rel="noopener">declaración de fe completa</a>.</p>
+  </div>
+</section>
+
+<!-- ---------- EVENTOS ---------- -->
+<section id="eventos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Agenda</div>
+      <h2>Próximos eventos</h2>
+      <p>Así es como vivimos la vida en comunidad, más allá del domingo.</p>
+    </div>
+
+    <div class="eventos-list">
+      <div class="evento-row">
+        <div class="fecha-block">
+          <div class="dia-num">14</div>
+          <div class="mes">SEP</div>
+        </div>
+        <div>
+          <h3>Noche de oración</h3>
+          <p>Nos reunimos para orar por nuestra ciudad y nuestra congregación. 7:00 PM en el santuario principal.</p>
+        </div>
+      </div>
+      <div class="evento-row">
+        <div class="fecha-block">
+          <div class="dia-num">21</div>
+          <div class="mes">SEP</div>
+        </div>
+        <div>
+          <h3>Bautismos</h3>
+          <p>Un domingo especial celebrando a quienes darán este paso de obediencia. Todos están invitados.</p>
+        </div>
+      </div>
+      <div class="evento-row">
+        <div class="fecha-block">
+          <div class="dia-num">05</div>
+          <div class="mes">OCT</div>
+        </div>
+        <div>
+          <h3>Convivio de otoño</h3>
+          <p>Un tiempo para compartir en familia como iglesia — comida, juegos y comunión. Después del servicio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- DAR ---------- -->
+<section class="alt" id="dar">
+  <div class="wrap">
+    <div class="dar-panel">
+      <div>
+        <h2>Dar es un acto de adoración</h2>
+        <p>Tus ofrendas sostienen el ministerio de esta iglesia y alcanzan a nuestra comunidad con el evangelio. Gracias por tu fidelidad y generosidad.</p>
+      </div>
+      <div class="dar-methods">
+        <div class="dar-method">
+          <div class="metodo">En el servicio</div>
+          <div class="detalle">Cada domingo, durante el tiempo de ofrenda.</div>
+        </div>
+        <div class="dar-method">
+          <div class="metodo">En línea</div>
+          <div class="detalle">Da de forma segura con tarjeta a través de Zeffy — sin comisiones para la iglesia.</div>
+          <a href="https://www.zeffy.com/en-US/donation-form/adoremos-a-dios-con-nuestros-diezmos-y-ofrendas" class="btn btn-primary" style="margin-top:12px; padding:10px 20px; font-size:0.9rem;" target="_blank" rel="noopener">Dar en línea</a>
+        </div>
+        <div class="dar-method dar-method-qr">
+          <div class="metodo">Por Zelle</div>
+          <div class="detalle">Escanea el código con la cámara de tu teléfono o la app de tu banco.</div>
+          <img src="images/qr-zelle.png" alt="Código QR para dar por Zelle" class="qr-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- CONTACTO ---------- -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Visítanos</div>
+      <h2>Te esperamos este domingo</h2>
+    </div>
+
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <dl>
+          <dt>Dirección</dt>
+          <dd>1150 Niles Ave NW<br>Atlanta, GA 30318</dd>
+          <dt>Teléfono</dt>
+          <dd><a href="tel:+14048278976">(404) 827-8976</a></dd>
+          <dt>Correo</dt>
+          <dd><a href="mailto:contacto@amistadatlanta.com">contacto@amistadatlanta.com</a></dd>
+          <dt>Pastor</dt>
+          <dd>Melvin Loza</dd>
+        </dl>
+      </div>
+      <iframe
+        class="map-slot"
+        src="https://www.google.com/maps?q=1150+Niles+Ave+NW,+Atlanta,+GA+30318&output=embed"
+        style="border:0; width:100%;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación de Iglesia Amistad Atlanta">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">
+        Iglesia Amistad Atlanta
+        <p>Una comunidad de fe centrada en el evangelio, sirviendo a Atlanta y más allá.</p>
+      </div>
+      <nav>
+        <a href="#horarios">Horarios</a>
+        <a href="#sermones">Sermones</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#dar">Dar</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      © <span id="year"></span> Iglesia Amistad Atlanta. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  toggle.addEventListener('click', () => {
+    const isOpen = mobileNav.style.display === 'flex';
+    mobileNav.style.display = isOpen ? 'none' : 'flex';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => { mobileNav.style.display = 'none'; });
+  });
+</script>
+
+</body>
+</html>
