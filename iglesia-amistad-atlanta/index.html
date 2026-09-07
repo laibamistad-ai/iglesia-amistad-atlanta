@@ -289,7 +289,40 @@
     border-bottom: 2px solid var(--amber);
   }
   .creencia p { color: #4A443B; }
-
+  /* ---------- FAQ ---------- */
+  .faq-list {
+    margin-top: 48px;
+    border-top: 1px solid var(--line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item summary {
+    padding: 20px 4px;
+    font-weight: 600;
+    color: var(--navy-deep);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    color: var(--amber-deep);
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { content: '–'; }
+  .faq-item p {
+    padding: 0 4px 22px;
+    margin: 0;
+    color: #4A443B;
+    max-width: 68ch;
+  }
   /* ---------- Eventos ---------- */
   .eventos-list { display: flex; flex-direction: column; gap: 0; }
   .evento-row {
@@ -616,6 +649,28 @@
     </div>
 
     <p style="margin-top:36px;">¿Quieres conocer más? Puedes leer nuestra <a href="https://bfm.sbc.net/fe-y-mensaje-bautistas/" target="_blank" rel="noopener">declaración de fe completa</a>.</p>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Qué papel tiene la Biblia para ustedes?</summary>
+        <p>Creemos que la Biblia es la Palabra inspirada de Dios, sin error en sus escritos originales, y la autoridad final para la fe y la vida cristiana.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo se llega a ser salvo?</summary>
+        <p>La salvación es un regalo de la gracia de Dios, que se recibe por fe personal en Jesucristo como Señor y Salvador — no por buenas obras ni por pertenecer a una iglesia.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Necesito ser miembro o estar bautizado para asistir?</summary>
+        <p>No. Cualquiera es bienvenido a nuestros servicios, sin importar su trasfondo o etapa espiritual. El bautismo es el paso que sigue después de poner la fe en Cristo, y es requisito para ser miembro — pero nunca para asistir o participar de la adoración.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuál es su postura sobre el matrimonio y la sexualidad?</summary>
+        <p>Todos son bienvenidos. Sin embargo, creemos, conforme a las Escrituras, que el matrimonio es la unión de un hombre y una mujer en un pacto de compromiso para toda la vida, y que ahí es donde Dios diseñó que se viviera la intimidad sexual. Esto significa que cualquier relación fuera de este modelo —como las relaciones homosexuales, la fornicación o el adulterio, entre otras— es una perversión del diseño establecido por Dios.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Son parte de alguna denominación?</summary>
+        <p>Sí, somos una iglesia bautista, y seguimos la Fe y Mensaje Bautista (2000) como nuestra confesión de fe.</p>
+      </details>
+    </div>
   </div>
 </section>
 
