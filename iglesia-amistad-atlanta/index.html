@@ -323,6 +323,17 @@
     color: #4A443B;
     max-width: 68ch;
   }
+  .reading-plan-callout {
+    margin-top: 48px;
+    background: var(--white);
+    border: 1px solid var(--amber);
+    border-radius: 4px;
+    padding: 32px 36px;
+  }
+  .reading-plan-callout h3 { font-size: 1.25rem; margin-bottom: 10px; }
+  .reading-plan-callout p { color: #4A443B; margin-bottom: 20px; max-width: 62ch; }
+  .reading-plan-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .reading-plan-links a.btn { padding: 11px 22px; font-size: 0.92rem; }
   /* ---------- Eventos ---------- */
   .eventos-list { display: flex; flex-direction: column; gap: 0; }
   .evento-row {
@@ -665,6 +676,14 @@
         <summary>¿Son parte de alguna denominación?</summary>
         <p>Sí, somos una iglesia bautista y tenemos la Fe y Mensaje Bautistas (2000) como nuestra confesión de fe.</p>
       </details>
+      </div>
+    <div class="reading-plan-callout">
+      <h3>¿Quieres leer la Biblia completa este año?</h3>
+      <p>Te recomendamos el plan cronológico gratuito de la Bible App (YouVersion) — 365 lecturas diarias, en español. Puedes seguirlo solo, o invitar a tu familia o grupo pequeño a leer contigo.</p>
+      <div class="reading-plan-links">
+        <a href="https://www.bible.com/es/reading-plans/5-chronological" target="_blank" rel="noopener" class="btn btn-primary">Empezar el plan cronológico</a>
+        <a href="https://www.bible.com/es/reading-plans" target="_blank" rel="noopener" class="btn btn-ghost">Explorar más planes</a>
+      </div>
     </div>
   </div>
 </section>
