@@ -245,6 +245,21 @@
     object-fit: cover;
     display: block;
   }
+  .video-embed {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+  .video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
   .sermon-feature-body { padding: 34px 36px 34px 0; display: flex; flex-direction: column; justify-content: center; }
   .sermon-feature .tag {
     color: var(--amber-deep);
@@ -603,9 +618,15 @@
     </div>
 
     <div class="sermon-feature">
-      <a href="https://www.youtube.com/watch?v=QL8HI77WFLc" target="_blank" rel="noopener" style="display:block;">
-        <img src="images/sermon-rut2.jpg" alt="La Providencia de Dios en lo Ordinario — Rut 2" class="sermon-thumb">
-      </a>
+     <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/QL8HI77WFLc"
+          title="La Providencia de Dios en lo Ordinario — Rut 2"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
       <div class="sermon-feature-body">
         <div class="tag">Serie: Rut</div>
         <h3>La Providencia de Dios en lo Ordinario</h3>
